@@ -11,13 +11,13 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'dict'
+    database: 'tests'
 })
 connection.connect()
 
 app.get('/api/getEntry', function (req, res) {
     //test für query (=select)
-    let sqlTxt = 'select * from dict'
+    let sqlTxt = 'select * from tests'
     
     connection.query(sqlTxt, function (error, results, fields) {
         if (error) {
@@ -38,3 +38,30 @@ app.get('/api/getEntry', function (req, res) {
     })
 
 })
+
+// curl --request POST --include  --header 'Content-Type: application/json' --data '{"word":"Walter","description":"Bester Schulwart ever!"}' localhost:3000/api/setword
+
+app.post('/api/setword', function(req,res){
+    dict[req.body.word]=req.body.description
+    res.status(201).send('OK')
+})
+
+
+
+// curl localhost:3000/api/hello
+app.listen(3000,function(){
+    console.log('server running and listening on port 3000')
+})
+
+/*
+    CREATE TABLE Test (
+        Id INT, 
+        Date DATE, 
+        Class VARCHAR(), 
+        Subject VARCHAR(20),
+        Category VARCHAR(15),
+        Topic VARCHAR(40),
+        Participated INT,
+        Average INT,
+    ); 
+*/
