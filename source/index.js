@@ -6,34 +6,62 @@ $( document ).ready(function() {
 console.log('test');
 let classes=['1AHELS','2AHELS','3AHELS','4AHELS','5AHELS']
 
-let classesEl = document.getElementById('dropdown')
+let tests=[
+    {
+        date:"01.01.2018", class:"5AHELS", subject:"KSN", category:"Test", topic:"QAM", participated: 19, avg:3.2
+    },
+    {
+        date:"02.02.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"GSM", participated: 21, avg:2.5
+    },
+    {
+        date:"03.03.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"EDGE", participated: 18, avg:4.0
+    },
+    {
+        date:"04.04.2018", class:"5AHELS", subject:"KSN", category:"Test", topic:"UMTS", participated: 20, avg:3.4
+    },
+    {
+        date:"05.05.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"LTE", participated: 21, avg:2.6
+    }
+];
+
+/*let classesEl = document.getElementById('dropdown')
 ddStr = ''
 for(let c of classes){
     ddStr+='<li><a href="#!">'
     ddStr+=c
     ddStr+='</a></li>'
 }
-classesEl.innerHTML = ddStr
+classesEl.innerHTML = ddStr*/
 
 function load() {
     console.log('loaded')
-
-    let httpReq=new XMLHttpRequest()
+    let divHead = document.getElementById('heading')
+    divHead.innerHTML = "<h1>Die letzten Tests</h1>"
+    /*let httpReq=new XMLHttpRequest()
     httpReq.open('GET', '/api/getEntry')
     httpReq.onload = function() {
         let responseData = JSON.parse(this.responseText)
         loadLastEntrys(responseData)
     }
-    httpReq.send()
+    httpReq.send()*/
+    loadLastEntrys(tests)
 } 
 
-function loadLastEntrys(data){
-    let divEl = document.getElementById('')
-    let letzteEintraege ="<table><thead><tr><th>Test</th><th>Datum</th><th>Teilg.</th><th>Avg.</th></tr></thead><tbody>"
-    for(let entrys in data){
+function loadLastEntrys(tests){
+    let divEl = document.getElementById('lastEntrys')
+    let letzteEintraege ="<table><thead><tr><th>Datum</th><th>Klasse</th><th>Fach</th><th>Art</th><th>Thema</th><th>Teilgenommen</th><th>Durchschnitt</th></tr></thead><tbody>"
+    console.log(tests[0].date)
+    for(let entrys in tests){
+        //console.log(entrys.date)
         letzteEintraege += '<tr>'
-        letzteEintraege += '<td>'+entrys+'</td>'
-        letzteEintraege += '<td>'+data[entry]+'</td>' //hier müssen noch die Daten aufgeteilt werden.
+        letzteEintraege += '<td>'+tests[entrys].date+'</td>'
+        letzteEintraege += '<td>'+tests[entrys].class+'</td>'
+        letzteEintraege += '<td>'+tests[entrys].subject+'</td>'
+        letzteEintraege += '<td>'+tests[entrys].category+'</td>'
+        letzteEintraege += '<td>'+tests[entrys].topic+'</td>'
+        letzteEintraege += '<td>'+tests[entrys].participated+'</td>'
+        letzteEintraege += '<td>'+tests[entrys].avg+'</td>'
+        //letzteEintraege += '<td>'+data[entry]+'</td>' //hier müssen noch die Daten aufgeteilt werden.
         letzteEintraege += '</tr>'
     }
     letzteEintraege+="</tbody></table>"
