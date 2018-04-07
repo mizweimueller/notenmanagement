@@ -64,6 +64,8 @@ function loadLastEntrys(){
         letzteEintraege += '<td>'+tests[entrys].topic+'</td>'
         letzteEintraege += '<td>'+tests[entrys].participated+'</td>'
         letzteEintraege += '<td>'+tests[entrys].avg+'</td>'
+        letzteEintraege += '<td> <a href="changeTest.html"><buttonclass="btn waves-effect waves-light"><i  class="material-icons">create</i></button></a> </td>'
+        letzteEintraege += '<td> <a href="changeTest.html"><buttonclass="btn waves-effect waves-light"><i class="material-icons">delete</i></button></a> </td>'
         letzteEintraege += '</tr>'
     }
     letzteEintraege+="</tbody></table>"
