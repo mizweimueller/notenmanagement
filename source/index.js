@@ -3,6 +3,18 @@ $( document ).ready(function() {
     load()
 });
 
+let subjects=['KSN', 'FSST', 'Mathematik','DIC']
+
+let subjectsEl = document.getElementById('subjectdropdown')
+ddStr = ''
+for(let c of subjects){
+    ddStr+='<li><a href="#!">'
+    ddStr+=c
+    ddStr+='</a></li>'
+}
+subjectsEl.innerHTML = ddStr
+
+
 console.log('test');
 let classes=['1AHELS','2AHELS','3AHELS','4AHELS','5AHELS']
 
