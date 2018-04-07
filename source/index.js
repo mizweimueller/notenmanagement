@@ -73,7 +73,6 @@ function loadLastEntrys(tests){
         letzteEintraege += '<td>'+tests[entrys].topic+'</td>'
         letzteEintraege += '<td>'+tests[entrys].participated+'</td>'
         letzteEintraege += '<td>'+tests[entrys].avg+'</td>'
-        //letzteEintraege += '<td>'+data[entry]+'</td>' //hier müssen noch die Daten aufgeteilt werden.
         letzteEintraege += '</tr>'
     }
     letzteEintraege+="</tbody></table>"
