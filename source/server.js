@@ -13,11 +13,11 @@ let connection = mysql.createConnection({
     password: 'root',
     database: 'tests'
 })
-connection.connect()
+
 
 app.get('/api/getEntry', function (req, res) {
     //test für query (=select)
-    let sqlTxt = 'select * from tests'
+    let sqlTxt = 'select * from Tests'
     
     connection.query(sqlTxt, function (error, results, fields) {
         if (error) {
@@ -54,8 +54,8 @@ app.listen(3000,function(){
 })
 
 /*
-    CREATE TABLE Test (
-        Id INT, 
+    CREATE TABLE Tests (
+        Id INT NOT NULL AUTO_INCREMENT, 
         Date DATE, 
         Class VARCHAR(), 
         Subject VARCHAR(20),
@@ -64,4 +64,29 @@ app.listen(3000,function(){
         Participated INT,
         Average INT,
     ); 
+    INSERT INTO Tests (Date,Class,Subject,Category,Topic,Participated,Average) VALUES 
+    ('2018-01-01', '5AHELS', 'KSN','Test','QAM',19,3.2),  
+    ('2018-02-02', '5AHELS', 'KSN','LZK','GSM',21,2.5),
+    ('2018-03-03', '5AHELS', 'KSN','LZK','EDGE',18,4.0),
+    ('2018-03-03', '5AHELS', 'KSN','Test','UMTS',20,3.4),
+    ('2018-03-03', '5AHELS', 'KSN','LZK','LTE',21,2.6)
+    ; 
+
+    select * from Test;
+
+
+    date:"01.01.2018", class:"5AHELS", subject:"KSN", category:"Test", topic:"QAM", participated: 19, avg:3.2
+    },
+    {
+        date:"02.02.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"GSM", participated: 21, avg:2.5
+    },
+    {
+        date:"03.03.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"EDGE", participated: 18, avg:4.0
+    },
+    {
+        date:"04.04.2018", class:"5AHELS", subject:"KSN", category:"Test", topic:"UMTS", participated: 20, avg:3.4
+    },
+    {
+        date:"05.05.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"LTE", participated: 21, avg:2.6
+    }
 */
