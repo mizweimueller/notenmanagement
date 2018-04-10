@@ -49,10 +49,10 @@ function load() {
         loadLastEntrys(responseData)
     }
     httpReq.send()*/
-    loadLastEntrys(tests)
+    loadLastEntrys()
 } 
 
-function loadLastEntrys(tests){
+function loadLastEntrys(){
     let divEl = document.getElementById('lastEntrys')
     let letzteEintraege ="<table><thead><tr><th>Datum</th><th>Klasse</th><th>Fach</th><th>Art</th><th>Thema</th><th>Teilgenommen</th><th>Durchschnitt</th></tr></thead><tbody>"
     console.log(tests[0].date)
