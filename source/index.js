@@ -27,6 +27,8 @@ let tests=[
     }
 ];
 
+
+
 /*let classesEl = document.getElementById('dropdown')
 ddStr = ''
 for(let c of classes){
@@ -71,3 +73,4 @@ function loadLastEntrys(tests){
     letzteEintraege+="</tbody></table>"
     divEl.innerHTML = letzteEintraege
 }
+
