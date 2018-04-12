@@ -8,14 +8,14 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 let connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'tests'
+    host: '82.211.19.79',
+    user: 'michinoten',
+    password: 'michinoten',
+    database: 'michinoten'
 })
 
 
-app.get('/api/getEntry', function (req, res) {
+app.get('/api/getLastEntrys', function (req, res) {
     //test für query (=select)
     let sqlTxt = 'select * from Tests'
     
@@ -28,23 +28,23 @@ app.get('/api/getEntry', function (req, res) {
         console.log('Query ok')
         console.log(results)
         //Schleife über das Ergebnis
-        dict = {}
+        /*dict = {}
         for (let i = 0; i < results.length; i++) {
             let recordObj = results[i]
             dict[recordObj.word] = recordObj.description
         }
-        console.log(dict)
-        res.send(dict)
+        console.log(dict)*/
+        //res.send(dict)
     })
 
 })
 
 // curl --request POST --include  --header 'Content-Type: application/json' --data '{"word":"Walter","description":"Bester Schulwart ever!"}' localhost:3000/api/setword
 
-app.post('/api/setword', function(req,res){
+/*app.post('/api/setword', function(req,res){
     dict[req.body.word]=req.body.description
     res.status(201).send('OK')
-})
+})*/
 
 
 
@@ -56,14 +56,71 @@ app.listen(3000,function(){
 /*
     CREATE TABLE Tests (
         Id INT NOT NULL AUTO_INCREMENT, 
+        PRIMARY KEY(Id),
         Date DATE, 
-        Class VARCHAR(), 
-        Subject VARCHAR(20),
-        Category VARCHAR(15),
+        Class_Id INT, 
+        Subject_Id INT,
+        Category_Id INT,
         Topic VARCHAR(40),
         Participated INT,
         Average INT,
     ); 
+    
+    CREATE TABLE Students (
+        Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Id),
+        Name VARCHAR(20),
+        Surname VARCHAR(20),
+        Class_Id INT
+    );
+
+    CREATE TABLE Classes(
+        Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Id),
+        Description VARCHAR(10)
+    );
+    CREATE TABLE Subjects(
+        Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Id),
+        Description VARCHAR(10),
+        Student_Id INT,
+        Test_Id INT,
+        Class_Id INT
+    );
+    CREATE TABLE Grades(
+        Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Id),
+        Description VARCHAR(10)
+    )
+
+    INSERT INTO Students(Name,Surname) VALUES
+    ('Johannes','Aigner'),
+    ('Simon','Angleitner'),
+    ('Mathias','Asamer'),
+    ('Julian','Bachinger'),
+    ('David','Diermayr'),
+    ('Franziska','Ertl'),
+    ('Lukas','Fehkuehrer'),
+    ('Lukas','Friedl'),
+    ('Stefan','Gruenzinger'),
+    ('Alexander','Krämer'),
+    ('Alexander','Leimer'),
+    ('Arastu','Moatazedy'),
+    ('Maximilian','Reisecker'),
+    ('Florian','Schachermair'),
+    ('Martin','Schachl'),
+    ('Wolfgang','Schwendtbauer'),
+    ('Leon','Stempfer'),
+    ('Matthias','Weingartner'),
+    ('Philipp','Weiss'),
+    ('Elias','Wollitzer'),
+    ('Michael','Zweimueller')
+    ;
+
+    INSERT INTO Grades(Description) VALUES
+
+
+
     INSERT INTO Tests (Date,Class,Subject,Category,Topic,Participated,Average) VALUES 
     ('2018-01-01', '5AHELS', 'KSN','Test','QAM',19,3.2),  
     ('2018-02-02', '5AHELS', 'KSN','LZK','GSM',21,2.5),
@@ -74,19 +131,18 @@ app.listen(3000,function(){
 
     select * from Test;
 
+    Klassen ID's
+    11 1AHELS
+    12 1BHELS
+    13 1CHELS
+    14 
+    15
+    16
+    17
+    18
+    21
+    22 2AHELS
 
-    date:"01.01.2018", class:"5AHELS", subject:"KSN", category:"Test", topic:"QAM", participated: 19, avg:3.2
-    },
-    {
-        date:"02.02.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"GSM", participated: 21, avg:2.5
-    },
-    {
-        date:"03.03.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"EDGE", participated: 18, avg:4.0
-    },
-    {
-        date:"04.04.2018", class:"5AHELS", subject:"KSN", category:"Test", topic:"UMTS", participated: 20, avg:3.4
-    },
-    {
-        date:"05.05.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"LTE", participated: 21, avg:2.6
-    }
+
+ 
 */
