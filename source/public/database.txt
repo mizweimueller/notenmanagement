@@ -1,0 +1,111 @@
+DROP TABLE Tests;
+DROP TABLE Students;
+DROP TABLE Teachers;
+DROP TABLE Classes;
+DROP TABLE Subjects;
+DROP TABLE Results;
+
+
+CREATE TABLE Tests (
+        Test_Id INT NOT NULL AUTO_INCREMENT, 
+        Class_Id INT, 
+        Subject_Id INT,
+        Teacher_Id INT,
+        PRIMARY KEY(Test_Id,Class_Id,Subject_Id,Teacher_Id),
+        Date DATE, 
+        Topic VARCHAR(40)
+    ); 
+    
+    CREATE TABLE Students (
+        Student_Id INT NOT NULL,
+        Class_Id INT,
+        PRIMARY KEY(Student_Id,Class_Id),
+        Name VARCHAR(20),
+        Surname VARCHAR(20)
+    );
+    CREATE TABLE Teachers(
+        Teacher_Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Teacher_Id),
+        Name VARCHAR(20),
+        Surname VARCHAR(20)
+    );
+
+    CREATE TABLE Classes(
+        Class_Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Class_Id),
+        Description VARCHAR(10)
+    );
+    CREATE TABLE Subjects(
+        Subject_Id INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(Subject_Id),
+        Description VARCHAR(10)
+    );
+    CREATE TABLE Results(
+        Student_Id INT,
+        Test_Id INT,
+        PRIMARY KEY(Student_Id,Test_Id),
+        Grade INT,
+        Comment VARCHAR(20)
+    )
+
+    INSERT INTO Students VALUES
+    (1,1,'Johannes','Aigner'),
+    (2,1,'Simon','Angleitner'),
+    (3,1,'Mathias','Asamer'),
+    (1,2,'Julian','Bachinger'),
+    (2,2,'David','Diermayr'),
+    (3,2,'Franziska','Ertl'),
+   
+    ;
+
+    INSERT INTO Teachers (Name,Surname) VALUES
+    ('Franz','Matejka'),
+    ('Sandra','Engelbutzeder')
+    ;
+
+    INSERT INTO Subjects (Description) VALUES
+    ("FSST"),
+    ("SEN"),
+    ("Deutsch"),
+    ("Geschichte")
+    ;
+
+    INSERT INTO Classes (Description) VALUES
+    ("5AHELS"),
+    ("5DHELS")
+    ;
+
+    INSERT INTO Tests (Class_Id,Subject_Id,Teacher_Id,Date,Topic) VALUES
+    (1,2,1,"2018-01-01","Datenbanken"),
+    (1,2,1,"2018-02-10","Node JS"),
+    (1,2,1,"2018-01-08","Wiederholungstest Datenbanken")
+    (2,1,1,"2018-03-12","Android Studio"),
+    (1,3,2,"2018-02-15","Weimarer Klassik"),
+    (2,4,2,"2018-04-23","Franzoesische Revolution")
+    ;
+
+    INSERT INTO Results VALUES
+    (1,1,2,""),
+    (2,1,5,"Wiederholungstest am 08.01."),
+    (3,1,5,"Wiederholungstest am 08.01."),
+
+    (1,2,4,""),
+    (2,2,1,""),
+    (3,2,3,""),
+
+    (1,3,5,""),
+    (2,3,4,""),
+    (3,3,3,""),
+
+    (1,4,4,""),
+    (2,4,1,""),
+    (3,4,2,""),
+
+    (1,5,5,""),
+    (2,5,3,""),
+    (3,5,3,""),
+
+    (1,6,4,""),
+    (2,6,2,""),
+    (3,6,5,"")
+    ;
