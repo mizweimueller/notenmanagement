@@ -68,8 +68,8 @@ function erstellen(){
     xhttp.send();
 }
 
-
-let grades=[
+//Datenbank
+/*let grades=[
     { first:"Johannes", last:"Aigner"},
     { first:"Maximilian", last:"Reisecker"},
     { first:"Lukas", last:"Friedl"},
@@ -77,19 +77,19 @@ let grades=[
     { first:"Arastu", last:"Moatazedy"},
     { first:"Alexander", last:"Leimer"},
     { first:"David", last:"Diermayr"}
-];
+];*/
 
-function enterGrades(grades){
+function enterGrades(){
     let divgrades = document.getElementById('noten')
     let noteneingabe ="<table><thead><tr><th>Vorname</th><th>Nachname</th><th>Punkte</th><th>Note</th><th>Kommentar</th></thead><tbody>"
     
-    for(let eingabe in grades){
+    for(let eingabe=0; eingabe<data.length; eingabe++){
         
         noteneingabe += '<tr>'
-        noteneingabe += '<td>'+grades[eingabe].first+'</td>'
-        noteneingabe += '<td>'+grades[eingabe].last+'</td>'
+        noteneingabe += '<td>'+data[eingabe].first+'</td>'
+        noteneingabe += '<td>'+data[eingabe].last+'</td>'
         noteneingabe += '<td> <div class="input-field col s6"><input placeholder="Punkte" id="points" type="number" class="validate"></div></td>'
-        noteneingabe += '<td><select class="browser-default"><option value="" disabled selected>Note</option><option value="1">gefehlt</option><option value="2">1</option><option value="3">2</option><option value="4">3</option><option value="5">4</option><option value="6">5</option></select></td>' 
+        noteneingabe += '<td><select class="browser-default"><option id="note" value="" disabled selected>Note</option><option value="1">gefehlt</option><option value="2">1</option><option value="3">2</option><option value="4">3</option><option value="5">4</option><option value="6">5</option></select></td>' 
         noteneingabe += '<td> <div class="input-field col s6"><input placeholder="Kommentar" id="comment" type="text" class="validate"></div></td>'
 
         
@@ -97,6 +97,42 @@ function enterGrades(grades){
     }
     noteneingabe+="</tbody></table>"
     divgrades.innerHTML = noteneingabe
+}
+
+let resultat ={
+
+    punkte: "",
+    note: "",
+    kommentar: ""
+};
+
+function speichern(){
+  
+    resultat.punkte= docment.getElementById("points").value
+    resultat.note= docment.getElementById("note").value
+    resultat.kommentar= docment.getElementById("comment").value
+
+    let m= 'Klasse ='+klasse+' Fach= '+fach
+    let xhttp = new XMLHttpRequest();
+    let query = "/save/resultat/" ;
+    console.log(query);
+    xhttp.open("GET", query, true);
+    xhttp.onload = function () {
+    
+        if (this.status == 200) {
+            console.log('status=200')
+            console.log(this.responseText)
+            data = JSON.parse(this.responseText);
+            show();
+            //console.log(JSON.parse(this.responseText))
+        } else {
+            console.log("buuu")
+        }
+    }
+    xhttp.onerror = function () {
+        console.log("Error")
+    }
+    xhttp.send();
 }
 
 

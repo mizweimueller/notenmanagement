@@ -8,8 +8,7 @@ $( document ).ready(function() {
 
 $('.dropdown-trigger').dropdown();
 
-//var elem = document.querySelector('.dropdown-trigger');
-  //var instance = M.Dropdown.init(elem, options);
+
 
 
 console.log('test');
@@ -32,7 +31,6 @@ let tests=[
         date:"05.05.2018", class:"5AHELS", subject:"KSN", category:"LZK", topic:"LTE", participated: 21, avg:2.6
     }
 ];
-
 
 
 
