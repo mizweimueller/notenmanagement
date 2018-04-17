@@ -52,24 +52,6 @@ function load() {
 } 
 
 function loadLastEntrys(){
-    let divEl = document.getElementById('lastEntrys')
-    let letzteEintraege ="<table><thead><tr><th>Datum</th><th>Klasse</th><th>Fach</th><th>Art</th><th>Thema</th><th>Teilgenommen</th><th>Durchschnitt</th></tr></thead><tbody>"
-    console.log(tests[0].date)
-    for(let entrys in tests){
-        //console.log(entrys.date)
-        letzteEintraege += '<tr>'
-        letzteEintraege += '<td>'+tests[entrys].date+'</td>'
-        letzteEintraege += '<td>'+tests[entrys].class+'</td>'
-        letzteEintraege += '<td>'+tests[entrys].subject+'</td>'
-        letzteEintraege += '<td>'+tests[entrys].category+'</td>'
-        letzteEintraege += '<td>'+tests[entrys].topic+'</td>'
-        letzteEintraege += '<td>'+tests[entrys].participated+'</td>'
-        letzteEintraege += '<td>'+tests[entrys].avg+'</td>'
-        letzteEintraege += '<td> <a href="changeTest.html"><buttonclass="btn waves-effect waves-light"><i  class="material-icons">create</i></button></a> </td>'
-        letzteEintraege += '<td> <a href="changeTest.html"><buttonclass="btn waves-effect waves-light"><i class="material-icons">delete_forever</i></button></a> </td>'
-        letzteEintraege += '</tr>'
-    }
-    letzteEintraege+="</tbody></table>"
-    divEl.innerHTML = letzteEintraege
+    
 }
 

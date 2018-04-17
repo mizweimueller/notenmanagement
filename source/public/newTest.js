@@ -3,13 +3,21 @@ $( document ).ready(function() {
     load()
 });
 
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false, // Close upon selecting a date,
+    container: undefined // ex. 'body' will append picker to body
+  });
+
 function load() {
     console.log('loaded')
     
-    
     enterGrades(grades)
 } 
-
 
 /*!let subjects=['KSN', 'FSST', 'Mathematik','DIC']
 
@@ -21,6 +29,44 @@ for(let c of subjects){
     ddStr+='</a></li>'
 }
 subjectsEl.innerHTML = ddStr*/
+
+let newTest ={
+    klasse: "",
+    fach: "",
+    datum: "",
+    thema: "",
+    art: ""
+};
+
+function erstellen(){
+    newTest.klasse= docment.getElementById("selectclasses").value
+    newTest.fach= docment.getElementById("selectsubjects").value
+    newTest.datum= docment.getElementById("selectdate").value
+    newTest.thema= docment.getElementById("topic").value
+    newTest.art= docment.getElementById("art").value
+
+    let m= 'Klasse ='+klasse+' Fach= '+fach
+    let xhttp = new XMLHttpRequest();
+    let query = "/show/liste/" ;
+    console.log(query);
+    xhttp.open("POST", query, true);
+    xhttp.onload = function () {
+    
+        if (this.status == 200) {
+            console.log('status=200')
+            console.log(this.responseText)
+            data = JSON.parse(this.responseText);
+            show();
+            //console.log(JSON.parse(this.responseText))
+        } else {
+            console.log("buuu")
+        }
+    }
+    xhttp.onerror = function () {
+        console.log("Error")
+    }
+    xhttp.send();
+}
 
 
 let grades=[

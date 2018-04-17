@@ -27,9 +27,9 @@
           </ul>
           <nav>
             <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">
+              <a href="Startseite.html" class="brand-logo">
               <img src="htlLogo.png" height="54px">
-                Notenmanagementsystem
+                Neuer Test
             </a>
               <ul class="right hide-on-med-and-down">
                     <li>
@@ -48,23 +48,26 @@
 
     <div class= "left" >
     <select class="browser-default" id="selectclasses">
-            <option value="" disabled selected>Klasse</option>
-            <option value="1">1AHELS</option>
-            <option value="2">2AHELS</option>
-            <option value="3">3AHELS</option>
+            <option  disabled selected>Klasse</option>
+            <option >1AHELS</option>
+            <option >2AHELS</option>
+            <option >3AHELS</option>
+            <option >4AHELS</option>
+            <option >5AHELS</option>
           </select>
     </div>
     <div class="left">
-    <select class="browser-default"  >
-            <option value="" disabled selected>Fach</option>
-            <option value="1" class='left'>FSST</option>
-            <option value="2" class='left'>KSN</option>
-            <option value="3" class='left'>Mathematik</option>
+    <select class="browser-default" id="selectsubjects" >
+            <option disabled selected>Fach</option>
+            <option class='left'>KSN</option>
+            <option class='left'>FSST</option>
+            <option class='left'>Mathematik</option>
+            <option class='left'>DIC</option>
           </select>
     </div>     
 
     <div class="row" class="left">
-    <input type="text" class="datepicker"> Datum </input>
+    <input type="text" class="datepicker" id="selectdate"> Datum </input>
     </div>
 
     <div class="left">
@@ -73,7 +76,7 @@
               <label for="topic">Thema</label>
             </div>
   
-        <form action="#">
+        <form action="#" id="art">
         <p>
           <input class="with-gap" name="group1" type="radio" id="test1" />
           <label for="test1">LZK</label>
@@ -88,7 +91,7 @@
         </p>
     </form>
        
-             <a href="NotenEingeben.html"><button class="btn waves-effect waves-light" type="button" name="action">Erstellen
+             <a href="NotenEingeben.html"><button onclick="erstellen()" class="btn waves-effect waves-light" type="button" name="action">Erstellen
                 <i  class="material-icons right">erstellen</i></button></a>
         
 
@@ -100,7 +103,7 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    
+<script src="newTest.js"></script>    
 </body>
 
 </html>

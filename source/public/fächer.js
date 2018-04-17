@@ -86,7 +86,7 @@ xhttp.send();
 }
 
 function dic(){
-    let m= 'Klasse ='+klasse+' Fach= '+dic
+let m= 'Klasse ='+klasse+' Fach= '+dic
 let xhttp = new XMLHttpRequest();
 let query = "/show/test/" + m;
 console.log(query);
@@ -108,5 +108,29 @@ xhttp.onerror = function () {
 }
 xhttp.send();
 
+}
+
+
+function show(){
+
+    let divEl = document.getElementById('tests')
+    let letzteEintraege ="<table><thead><tr><th>Datum</th><th>Klasse</th><th>Fach</th><th>Art</th><th>Thema</th><th>Teilgenommen</th><th>Durchschnitt</th></tr></thead><tbody>"
+    console.log(tests[0].date)
+    for(let entrys=0; entrys<data.length; entrys++){
+        //console.log(entrys.date)
+        letzteEintraege += '<tr>'
+        letzteEintraege += '<td>'+data[entrys].date+'</td>'
+        letzteEintraege += '<td>'+data[entrys].class+'</td>'
+        letzteEintraege += '<td>'+data[entrys].subject+'</td>'
+        letzteEintraege += '<td>'+data[entrys].category+'</td>'
+        letzteEintraege += '<td>'+data[entrys].topic+'</td>'
+        letzteEintraege += '<td>'+data[entrys].participated+'</td>'
+        letzteEintraege += '<td>'+data[entrys].avg+'</td>'
+        letzteEintraege += '<td> <a href="changeTest.html"><buttonclass="btn waves-effect waves-light"><i  class="material-icons">create</i></button></a> </td>'
+        letzteEintraege += '<td> <a href="changeTest.html"><buttonclass="btn waves-effect waves-light"><i class="material-icons">delete_forever</i></button></a> </td>'
+        letzteEintraege += '</tr>'
+    }
+    letzteEintraege+="</tbody></table>"
+    divEl.innerHTML = letzteEintraege
 }
 
