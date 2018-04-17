@@ -29,14 +29,14 @@ let tests=[
 
 
 
-/*let classesEl = document.getElementById('dropdown')
+let classesEl = document.getElementById('dropdown')
 ddStr = ''
 for(let c of classes){
     ddStr+='<li><a href="#!">'
     ddStr+=c
     ddStr+='</a></li>'
 }
-classesEl.innerHTML = ddStr*/
+classesEl.innerHTML = ddStr
 
 function load() {
     console.log('loaded')
