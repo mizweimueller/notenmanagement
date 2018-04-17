@@ -7,7 +7,7 @@ function load() {
     console.log('loaded')
     
     
-    enterGrades(grades)
+    //enterGrades(grades)
 } 
 
 let grades=[
@@ -20,7 +20,7 @@ let grades=[
     { first:"David", last:"Diermayr"}
 ];
 
-function enterGrades(grades){
+/*function enterGrades(grades){
     let divgrades = document.getElementById('noten')
     let noteneingabe ="<table><thead><tr><th>Vorname</th><th>Nachname</th><th>Punkte</th><th>Note</th><th>Kommentar</th></thead><tbody>"
     
@@ -38,4 +38,4 @@ function enterGrades(grades){
     }
     noteneingabe+="</tbody></table>"
     divgrades.innerHTML = noteneingabe
-}
+}*/
