@@ -4,6 +4,12 @@ $( document ).ready(function() {
 });
 
 
+// Or with jQuery
+
+$('.dropdown-trigger').dropdown();
+
+//var elem = document.querySelector('.dropdown-trigger');
+  //var instance = M.Dropdown.init(elem, options);
 
 
 console.log('test');
@@ -29,14 +35,7 @@ let tests=[
 
 
 
-let classesEl = document.getElementById('dropdown')
-ddStr = ''
-for(let c of classes){
-    ddStr+='<li><a href="#!">'
-    ddStr+=c
-    ddStr+='</a></li>'
-}
-classesEl.innerHTML = ddStr
+
 
 function load() {
     console.log('loaded')
