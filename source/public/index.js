@@ -49,7 +49,6 @@ function load() {
     loadLastEntrys()
 } 
 
-function loadLastEntrys(){
-    
-}
+
+
 

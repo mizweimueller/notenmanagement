@@ -47,7 +47,7 @@ function erstellen(){
 
     let m= 'Klasse ='+klasse+' Fach= '+fach
     let xhttp = new XMLHttpRequest();
-    let query = "/show/liste/" ;
+    let query = "/show/liste/" +newTest.klasse;
     console.log(query);
     xhttp.open("POST", query, true);
     xhttp.onload = function () {
@@ -55,7 +55,7 @@ function erstellen(){
         if (this.status == 200) {
             console.log('status=200')
             console.log(this.responseText)
-            data = JSON.parse(this.responseText);
+            data = JSON.parse(this.responseText); 
             show();
             //console.log(JSON.parse(this.responseText))
         } else {
@@ -68,7 +68,7 @@ function erstellen(){
     xhttp.send();
 }
 
-//Datenbank
+//Vor- und Nachname kommt von der Datenbank
 /*let grades=[
     { first:"Johannes", last:"Aigner"},
     { first:"Maximilian", last:"Reisecker"},
@@ -78,6 +78,11 @@ function erstellen(){
     { first:"Alexander", last:"Leimer"},
     { first:"David", last:"Diermayr"}
 ];*/
+
+/*let schueler = {
+    vn: "",
+    nn: ""
+};*/
 
 function enterGrades(){
     let divgrades = document.getElementById('noten')
@@ -112,7 +117,7 @@ function speichern(){
     resultat.note= docment.getElementById("note").value
     resultat.kommentar= docment.getElementById("comment").value
 
-    let m= 'Klasse ='+klasse+' Fach= '+fach
+    //let m= 'Klasse ='+klasse+' Fach= '+fach
     let xhttp = new XMLHttpRequest();
     let query = "/save/resultat/" ;
     console.log(query);
