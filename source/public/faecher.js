@@ -12,9 +12,9 @@ console.log('Klasse= '+klasse)
 
 function ksn(){
 
-let m= 'Klasse ='+klasse+' Fach= '+ksn
+//let m= 'Klasse ='+klasse+' Fach= '+ksn
 let xhttp = new XMLHttpRequest();
-let query = "/show/test/" + m;
+let query = "/show/test/" +klasse+'/'+ksn;
 console.log(query);
 xhttp.open("GET", query, true);
 xhttp.onload = function () {
@@ -36,9 +36,9 @@ xhttp.send();
 }
 
 function fsst(){
-    let m= 'Klasse ='+klasse+' Fach= '+fsst
+//let m= 'Klasse ='+klasse+' Fach= '+fsst
 let xhttp = new XMLHttpRequest();
-let query = "/show/test/" + m;
+let query = "/show/test/"+klasse+'/'+fsst;
 console.log(query);
 xhttp.open("GET", query, true);
 xhttp.onload = function () {
@@ -61,9 +61,9 @@ xhttp.send();
 }
 
 function mathe(){
-    let m= 'Klasse ='+klasse+' Fach= '+mathe
+//let m= 'Klasse ='+klasse+' Fach= '+mathe
 let xhttp = new XMLHttpRequest();
-let query = "/show/test/" + m;
+let query = "/show/test/" +klasse+'/'+mathe;
 console.log(query);
 xhttp.open("GET", query, true);
 xhttp.onload = function () {
@@ -86,9 +86,9 @@ xhttp.send();
 }
 
 function dic(){
-let m= 'Klasse ='+klasse+' Fach= '+dic
+//let m= 'Klasse ='+klasse+' Fach= '+dic
 let xhttp = new XMLHttpRequest();
-let query = "/show/test/" + m;
+let query = "/show/test/" +klasse+'/'+dic;
 console.log(query);
 xhttp.open("GET", query, true);
 xhttp.onload = function () {
